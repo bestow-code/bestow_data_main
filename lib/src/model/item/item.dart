@@ -1,5 +1,5 @@
 import 'package:bestow_data/bestow_data_model.dart';
-import 'package:bestow_data_main/src/model/persistence/image/image.dart';
+import 'package:bestow_data_main/src/model/model.dart';
 import 'package:objectbox/objectbox.dart';
 
 ///

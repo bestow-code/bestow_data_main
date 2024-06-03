@@ -1,5 +1,5 @@
 import 'package:bestow_data/bestow_data_model.dart' as api;
-import 'package:bestow_data_main/src/model/persistence/persistence.dart';
+import 'package:bestow_data_main/src/model/model.dart';
 import 'package:objectbox/objectbox.dart';
 
 ///
@@ -49,4 +49,8 @@ class ContainerAllocationImpl implements api.ContainerAllocation {
   @override
   // TODO: implement ref
   api.ContainerAllocationRef get ref => throw UnimplementedError();
+
+  @override
+  // TODO: implement startIndex
+  int get startIndex => throw UnimplementedError();
 }

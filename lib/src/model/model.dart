@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-library persistence;
+library model;
 
 export 'container/allocation/container_allocation.dart';
 export 'container/allocation/container_span.dart';

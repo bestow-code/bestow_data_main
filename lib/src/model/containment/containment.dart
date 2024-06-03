@@ -1,5 +1,4 @@
 import 'package:bestow_data/bestow_data_model.dart';
-import 'package:bestow_data_main/src/model/persistence/persistence.dart';
 import 'package:objectbox/objectbox.dart';
 
 ///
@@ -55,7 +54,7 @@ class ContainmentImpl implements Containment {
   // int get hashCode => id.hashCode;
 
   @override
-  ContainerImpl get container => throw UnimplementedError();
+  Container get container => throw UnimplementedError();
 
   @override
   ContainmentRef get ref => throw UnimplementedError();

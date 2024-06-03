@@ -1,4 +1,4 @@
-import 'package:bestow_data_main/src/model/persistence/persistence.dart';
+import 'package:bestow_data_main/src/model/model.dart';
 
 // ///
 // const allow =

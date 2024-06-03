@@ -1,5 +1,5 @@
 import 'package:bestow_data/bestow_data_model.dart';
-import 'package:bestow_data_main/src/model/persistence/persistence.dart';
+import 'package:bestow_data_main/src/model/model.dart';
 import 'package:objectbox/objectbox.dart';
 
 ///
@@ -9,12 +9,12 @@ class ImageImpl implements Image {
   ImageImpl({
     required this.refData,
     required this.token,
-    this.dbId = 0,
+    this.id = 0,
   });
 
   ///
   @Id()
-  int dbId;
+  int id;
 
   @override
   Item get item => itemToOne.target!;

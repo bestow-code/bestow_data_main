@@ -13,11 +13,11 @@ import 'package:objectbox/internal.dart'
     as obx_int; // generated code can access "internal" functionality
 import 'package:objectbox/objectbox.dart' as obx;
 
-import 'src/model/persistence/container/allocation/container_allocation.dart';
-import 'src/model/persistence/container/container.dart';
-import 'src/model/persistence/containment/containment.dart';
-import 'src/model/persistence/image/image.dart';
-import 'src/model/persistence/item/item.dart';
+import 'src/model/container/allocation/container_allocation.dart';
+import 'src/model/container/container.dart';
+import 'src/model/containment/containment.dart';
+import 'src/model/image/image.dart';
+import 'src/model/item/item.dart';
 
 export 'package:objectbox/objectbox.dart'; // so that callers only have to import this file
 
@@ -75,20 +75,6 @@ final _entities = <obx_int.ModelEntity>[
             name: 'sizeValue',
             type: 6,
             flags: 0)
-      ],
-      relations: <obx_int.ModelRelation>[],
-      backlinks: <obx_int.ModelBacklink>[]),
-  obx_int.ModelEntity(
-      id: const obx_int.IdUid(4, 5694165611361444865),
-      name: 'ContainmentImpl',
-      lastPropertyId: const obx_int.IdUid(1, 7796725037392309745),
-      flags: 0,
-      properties: <obx_int.ModelProperty>[
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(1, 7796725037392309745),
-            name: 'id',
-            type: 6,
-            flags: 1)
       ],
       relations: <obx_int.ModelRelation>[],
       backlinks: <obx_int.ModelBacklink>[]),
@@ -178,14 +164,9 @@ final _entities = <obx_int.ModelEntity>[
   obx_int.ModelEntity(
       id: const obx_int.IdUid(8, 167306156845435140),
       name: 'ImageImpl',
-      lastPropertyId: const obx_int.IdUid(4, 4620269097939630006),
+      lastPropertyId: const obx_int.IdUid(5, 5380814056965852521),
       flags: 0,
       properties: <obx_int.ModelProperty>[
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(1, 3531835921916943517),
-            name: 'dbId',
-            type: 6,
-            flags: 1),
         obx_int.ModelProperty(
             id: const obx_int.IdUid(2, 7759260328745736261),
             name: 'itemToOneId',
@@ -203,7 +184,26 @@ final _entities = <obx_int.ModelEntity>[
             id: const obx_int.IdUid(4, 4620269097939630006),
             name: 'token',
             type: 9,
-            flags: 0)
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(5, 5380814056965852521),
+            name: 'id',
+            type: 6,
+            flags: 1)
+      ],
+      relations: <obx_int.ModelRelation>[],
+      backlinks: <obx_int.ModelBacklink>[]),
+  obx_int.ModelEntity(
+      id: const obx_int.IdUid(9, 8679458422601398496),
+      name: 'ContainmentImpl',
+      lastPropertyId: const obx_int.IdUid(1, 8238810890270604880),
+      flags: 0,
+      properties: <obx_int.ModelProperty>[
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(1, 8238810890270604880),
+            name: 'id',
+            type: 6,
+            flags: 1)
       ],
       relations: <obx_int.ModelRelation>[],
       backlinks: <obx_int.ModelBacklink>[])
@@ -243,18 +243,20 @@ obx.Store openStore(
 obx_int.ModelDefinition getObjectBoxModel() {
   final model = obx_int.ModelInfo(
       entities: _entities,
-      lastEntityId: const obx_int.IdUid(8, 167306156845435140),
+      lastEntityId: const obx_int.IdUid(9, 8679458422601398496),
       lastIndexId: const obx_int.IdUid(9, 3981732054058593780),
       lastRelationId: const obx_int.IdUid(0, 0),
       lastSequenceId: const obx_int.IdUid(0, 0),
-      retiredEntityUids: const [3773422052721744386],
+      retiredEntityUids: const [3773422052721744386, 5694165611361444865],
       retiredIndexUids: const [],
       retiredPropertyUids: const [
         3843071922204309375,
         8943971859390874752,
         6716990357721271012,
         2158182812673860454,
-        4127790479408864688
+        4127790479408864688,
+        7796725037392309745,
+        3531835921916943517
       ],
       retiredRelationUids: const [],
       modelVersion: 5,
@@ -329,31 +331,8 @@ obx_int.ModelDefinition getObjectBoxModel() {
 
           return object;
         }),
-    ContainmentImpl: obx_int.EntityDefinition<ContainmentImpl>(
-        model: _entities[2],
-        toOneRelations: (ContainmentImpl object) => [],
-        toManyRelations: (ContainmentImpl object) => {},
-        getId: (ContainmentImpl object) => object.id,
-        setId: (ContainmentImpl object, int id) {
-          object.id = id;
-        },
-        objectToFB: (ContainmentImpl object, fb.Builder fbb) {
-          fbb.startTable(2);
-          fbb.addInt64(0, object.id);
-          fbb.finish(fbb.endTable());
-          return object.id;
-        },
-        objectFromFB: (obx.Store store, ByteData fbData) {
-          final buffer = fb.BufferContext(fbData);
-          final rootOffset = buffer.derefObject(0);
-          final idParam =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
-          final object = ContainmentImpl(id: idParam);
-
-          return object;
-        }),
     ItemImpl: obx_int.EntityDefinition<ItemImpl>(
-        model: _entities[3],
+        model: _entities[2],
         toOneRelations: (ItemImpl object) => [object.key, object.imageToOne],
         toManyRelations: (ItemImpl object) => {},
         getId: (ItemImpl object) => object.id,
@@ -383,7 +362,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
           return object;
         }),
     ItemKey: obx_int.EntityDefinition<ItemKey>(
-        model: _entities[4],
+        model: _entities[3],
         toOneRelations: (ItemKey object) => [],
         toManyRelations: (ItemKey object) => {},
         getId: (ItemKey object) => object.id,
@@ -410,7 +389,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
           return object;
         }),
     ContainerAllocationImpl: obx_int.EntityDefinition<ContainerAllocationImpl>(
-        model: _entities[5],
+        model: _entities[4],
         toOneRelations: (ContainerAllocationImpl object) => [],
         toManyRelations: (ContainerAllocationImpl object) => {},
         getId: (ContainerAllocationImpl object) => object.id,
@@ -448,23 +427,23 @@ obx_int.ModelDefinition getObjectBoxModel() {
           return object;
         }),
     ImageImpl: obx_int.EntityDefinition<ImageImpl>(
-        model: _entities[6],
+        model: _entities[5],
         toOneRelations: (ImageImpl object) => [object.itemToOne],
         toManyRelations: (ImageImpl object) => {},
-        getId: (ImageImpl object) => object.dbId,
+        getId: (ImageImpl object) => object.id,
         setId: (ImageImpl object, int id) {
-          object.dbId = id;
+          object.id = id;
         },
         objectToFB: (ImageImpl object, fb.Builder fbb) {
           final refDataOffset = fbb.writeString(object.refData);
           final tokenOffset = fbb.writeString(object.token);
-          fbb.startTable(5);
-          fbb.addInt64(0, object.dbId);
+          fbb.startTable(6);
           fbb.addInt64(1, object.itemToOne.targetId);
           fbb.addOffset(2, refDataOffset);
           fbb.addOffset(3, tokenOffset);
+          fbb.addInt64(4, object.id);
           fbb.finish(fbb.endTable());
-          return object.dbId;
+          return object.id;
         },
         objectFromFB: (obx.Store store, ByteData fbData) {
           final buffer = fb.BufferContext(fbData);
@@ -473,13 +452,36 @@ obx_int.ModelDefinition getObjectBoxModel() {
               .vTableGet(buffer, rootOffset, 8, '');
           final tokenParam = const fb.StringReader(asciiOptimization: true)
               .vTableGet(buffer, rootOffset, 10, '');
-          final dbIdParam =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
-          final object = ImageImpl(
-              refData: refDataParam, token: tokenParam, dbId: dbIdParam);
+          final idParam =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 12, 0);
+          final object =
+              ImageImpl(refData: refDataParam, token: tokenParam, id: idParam);
           object.itemToOne.targetId =
               const fb.Int64Reader().vTableGet(buffer, rootOffset, 6, 0);
           object.itemToOne.attach(store);
+          return object;
+        }),
+    ContainmentImpl: obx_int.EntityDefinition<ContainmentImpl>(
+        model: _entities[6],
+        toOneRelations: (ContainmentImpl object) => [],
+        toManyRelations: (ContainmentImpl object) => {},
+        getId: (ContainmentImpl object) => object.id,
+        setId: (ContainmentImpl object, int id) {
+          object.id = id;
+        },
+        objectToFB: (ContainmentImpl object, fb.Builder fbb) {
+          fbb.startTable(2);
+          fbb.addInt64(0, object.id);
+          fbb.finish(fbb.endTable());
+          return object.id;
+        },
+        objectFromFB: (obx.Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+          final idParam =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
+          final object = ContainmentImpl(id: idParam);
+
           return object;
         })
   };
@@ -522,79 +524,79 @@ class ContainerKey_ {
       obx.QueryIntegerProperty<ContainerKey>(_entities[1].properties[4]);
 }
 
-/// [ContainmentImpl] entity fields to define ObjectBox queries.
-class ContainmentImpl_ {
-  /// See [ContainmentImpl.id].
-  static final id =
-      obx.QueryIntegerProperty<ContainmentImpl>(_entities[2].properties[0]);
-}
-
 /// [ItemImpl] entity fields to define ObjectBox queries.
 class ItemImpl_ {
   /// See [ItemImpl.id].
   static final id =
-      obx.QueryIntegerProperty<ItemImpl>(_entities[3].properties[0]);
+      obx.QueryIntegerProperty<ItemImpl>(_entities[2].properties[0]);
 
   /// See [ItemImpl.key].
   static final key =
-      obx.QueryRelationToOne<ItemImpl, ItemKey>(_entities[3].properties[1]);
+      obx.QueryRelationToOne<ItemImpl, ItemKey>(_entities[2].properties[1]);
 
   /// See [ItemImpl.imageToOne].
   static final imageToOne =
-      obx.QueryRelationToOne<ItemImpl, ImageImpl>(_entities[3].properties[2]);
+      obx.QueryRelationToOne<ItemImpl, ImageImpl>(_entities[2].properties[2]);
 }
 
 /// [ItemKey] entity fields to define ObjectBox queries.
 class ItemKey_ {
   /// See [ItemKey.id].
   static final id =
-      obx.QueryIntegerProperty<ItemKey>(_entities[4].properties[0]);
+      obx.QueryIntegerProperty<ItemKey>(_entities[3].properties[0]);
 
   /// See [ItemKey.refData].
   static final refData =
-      obx.QueryStringProperty<ItemKey>(_entities[4].properties[1]);
+      obx.QueryStringProperty<ItemKey>(_entities[3].properties[1]);
 }
 
 /// [ContainerAllocationImpl] entity fields to define ObjectBox queries.
 class ContainerAllocationImpl_ {
   /// See [ContainerAllocationImpl.id].
   static final id = obx.QueryIntegerProperty<ContainerAllocationImpl>(
-      _entities[5].properties[0]);
+      _entities[4].properties[0]);
 
   /// See [ContainerAllocationImpl.start].
   static final start = obx.QueryIntegerProperty<ContainerAllocationImpl>(
-      _entities[5].properties[1]);
+      _entities[4].properties[1]);
 
   /// See [ContainerAllocationImpl.fixedDisplayLength].
   static final fixedDisplayLength =
       obx.QueryIntegerProperty<ContainerAllocationImpl>(
-          _entities[5].properties[2]);
+          _entities[4].properties[2]);
 
   /// See [ContainerAllocationImpl.containerTypeUid].
   static final containerTypeUid =
       obx.QueryIntegerProperty<ContainerAllocationImpl>(
-          _entities[5].properties[3]);
+          _entities[4].properties[3]);
 
   /// See [ContainerAllocationImpl.uid].
   static final uid = obx.QueryStringProperty<ContainerAllocationImpl>(
-      _entities[5].properties[4]);
+      _entities[4].properties[4]);
 }
 
 /// [ImageImpl] entity fields to define ObjectBox queries.
 class ImageImpl_ {
-  /// See [ImageImpl.dbId].
-  static final dbId =
-      obx.QueryIntegerProperty<ImageImpl>(_entities[6].properties[0]);
-
   /// See [ImageImpl.itemToOne].
   static final itemToOne =
-      obx.QueryRelationToOne<ImageImpl, ItemImpl>(_entities[6].properties[1]);
+      obx.QueryRelationToOne<ImageImpl, ItemImpl>(_entities[5].properties[0]);
 
   /// See [ImageImpl.refData].
   static final refData =
-      obx.QueryStringProperty<ImageImpl>(_entities[6].properties[2]);
+      obx.QueryStringProperty<ImageImpl>(_entities[5].properties[1]);
 
   /// See [ImageImpl.token].
   static final token =
-      obx.QueryStringProperty<ImageImpl>(_entities[6].properties[3]);
+      obx.QueryStringProperty<ImageImpl>(_entities[5].properties[2]);
+
+  /// See [ImageImpl.id].
+  static final id =
+      obx.QueryIntegerProperty<ImageImpl>(_entities[5].properties[3]);
+}
+
+/// [ContainmentImpl] entity fields to define ObjectBox queries.
+class ContainmentImpl_ {
+  /// See [ContainmentImpl.id].
+  static final id =
+      obx.QueryIntegerProperty<ContainmentImpl>(_entities[6].properties[0]);
 }

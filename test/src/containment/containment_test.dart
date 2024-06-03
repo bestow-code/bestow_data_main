@@ -1,11 +1,13 @@
 import 'package:bestow_data_main/objectbox.g.dart';
-import 'package:bestow_data_main/src/containment/containment.dart';
+import 'package:bestow_data_main/src/model/model.dart';
 import 'package:test/test.dart';
 
 void main() {
+  late Store store;
+  setUp(() => store = openStore());
+  tearDown(() => store.close());
   test('', () {
-    final store = openStore();
-    final box = store.box<Containment>();
+    final box = store.box<ContainmentImpl>();
     // final allocation = ContainerAllocation(
     //     containerTypeId: ContainerType.bag.id,
     //     start: 0,

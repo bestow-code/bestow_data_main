@@ -35,5 +35,5 @@ index_generator:
     - '**.g.dart'
   # Define the paths of the folders in which to generate the index files
   indexes:
-    - path: lib/src/model/persistence
+    - path: lib/src/model
 

@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'dart:math';
 
 import 'package:bestow_data_main/objectbox.g.dart';
 import 'package:bestow_data_main/src/model/model.dart';
@@ -21,6 +20,7 @@ void main() {
   });
   test('', () {
     final box = store!.box<ContainmentImpl>();
+    assert(box.isEmpty(), '');
     // final allocation = ContainerAllocation(
     //     containerTypeId: ContainerType.bag.id,
     //     start: 0,

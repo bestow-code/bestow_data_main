@@ -1,5 +1,3 @@
-
-///
 // class DigestService {
 //   ///
 //   Future<void> ingest(Digest digest) async {

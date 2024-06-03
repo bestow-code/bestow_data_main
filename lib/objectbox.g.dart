@@ -138,11 +138,6 @@ final _entities = <obx_int.ModelEntity>[
             type: 6,
             flags: 1),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(2, 755204125409317692),
-            name: 'start',
-            type: 6,
-            flags: 0),
-        obx_int.ModelProperty(
             id: const obx_int.IdUid(3, 2013961933570842091),
             name: 'fixedDisplayLength',
             type: 6,
@@ -256,7 +251,8 @@ obx_int.ModelDefinition getObjectBoxModel() {
         2158182812673860454,
         4127790479408864688,
         7796725037392309745,
-        3531835921916943517
+        3531835921916943517,
+        755204125409317692
       ],
       retiredRelationUids: const [],
       modelVersion: 5,
@@ -400,7 +396,6 @@ obx_int.ModelDefinition getObjectBoxModel() {
           final uidOffset = fbb.writeString(object.uid);
           fbb.startTable(6);
           fbb.addInt64(0, object.id);
-          fbb.addInt64(1, object.start);
           fbb.addInt64(2, object.fixedDisplayLength);
           fbb.addInt64(3, object.containerTypeUid);
           fbb.addOffset(4, uidOffset);
@@ -412,8 +407,6 @@ obx_int.ModelDefinition getObjectBoxModel() {
           final rootOffset = buffer.derefObject(0);
           final containerTypeUidParam =
               const fb.Int64Reader().vTableGet(buffer, rootOffset, 10, 0);
-          final startParam =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 6, 0);
           final fixedDisplayLengthParam =
               const fb.Int64Reader().vTableGet(buffer, rootOffset, 8, 0);
           final uidParam = const fb.StringReader(asciiOptimization: true)
@@ -421,7 +414,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
           final idParam =
               const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
           final object = ContainerAllocationImpl(
-              containerTypeUidParam, startParam, fixedDisplayLengthParam,
+              containerTypeUidParam, fixedDisplayLengthParam,
               uid: uidParam, id: idParam);
 
           return object;
@@ -556,23 +549,19 @@ class ContainerAllocationImpl_ {
   static final id = obx.QueryIntegerProperty<ContainerAllocationImpl>(
       _entities[4].properties[0]);
 
-  /// See [ContainerAllocationImpl.start].
-  static final start = obx.QueryIntegerProperty<ContainerAllocationImpl>(
-      _entities[4].properties[1]);
-
   /// See [ContainerAllocationImpl.fixedDisplayLength].
   static final fixedDisplayLength =
       obx.QueryIntegerProperty<ContainerAllocationImpl>(
-          _entities[4].properties[2]);
+          _entities[4].properties[1]);
 
   /// See [ContainerAllocationImpl.containerTypeUid].
   static final containerTypeUid =
       obx.QueryIntegerProperty<ContainerAllocationImpl>(
-          _entities[4].properties[3]);
+          _entities[4].properties[2]);
 
   /// See [ContainerAllocationImpl.uid].
   static final uid = obx.QueryStringProperty<ContainerAllocationImpl>(
-      _entities[4].properties[4]);
+      _entities[4].properties[3]);
 }
 
 /// [ImageImpl] entity fields to define ObjectBox queries.

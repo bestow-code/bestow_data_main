@@ -1,6 +1,3 @@
-
-
-
 // class Query<T extends Object> implements api.Query<T> {
 //   Query(this._query);
 //

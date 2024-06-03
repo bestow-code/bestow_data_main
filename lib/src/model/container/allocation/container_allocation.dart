@@ -8,19 +8,19 @@ class ContainerAllocationImpl implements api.ContainerAllocation {
   ///
   ContainerAllocationImpl(
     this.containerTypeUid,
-    this.start,
+    // this.start,
     this.fixedDisplayLength, {
     String? uid,
     this.id = 0,
-  }) : uid = uid ?? '$containerTypeUid:$start';
+  }) : uid = uid ?? '$containerTypeUid:';
 
   ///
   @Id()
   int id;
 
-  ///
-  @override
-  final int start;
+  // ///
+  // @override
+  // final int start;
 
   ///
   @override
@@ -33,6 +33,7 @@ class ContainerAllocationImpl implements api.ContainerAllocation {
   @override
   @Backlink()
   final spans = ToMany<ContainerSpanImpl>();
+
   //
   // @override
   // api.ContainerType get containerType =>
@@ -43,14 +44,11 @@ class ContainerAllocationImpl implements api.ContainerAllocation {
   late final String uid;
 
   @override
-  // TODO: implement kind
   api.ContainerKind get kind => throw UnimplementedError();
 
   @override
-  // TODO: implement ref
   api.ContainerAllocationRef get ref => throw UnimplementedError();
 
   @override
-  // TODO: implement startIndex
   int get startIndex => throw UnimplementedError();
 }

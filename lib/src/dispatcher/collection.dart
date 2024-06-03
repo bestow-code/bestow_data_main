@@ -1,5 +1,3 @@
-import 'package:bestow_data_main/objectbox.g.dart';
-
 ///
 abstract class CollectionView<T> {
   ///

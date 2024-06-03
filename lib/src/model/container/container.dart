@@ -11,7 +11,7 @@ class ContainerImpl implements Container {
 
   ///
   @Id()
-   int id;
+  int id;
 
   ///
   @Unique()

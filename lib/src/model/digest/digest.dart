@@ -1,3 +1,2 @@
 ///
-class Digest {
-}
+class Digest {}

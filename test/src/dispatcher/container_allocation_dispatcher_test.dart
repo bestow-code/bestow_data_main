@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'dart:math';
 
 import 'package:bestow_data_main/objectbox.g.dart';
 import 'package:bestow_data_main/src/model/model.dart';
@@ -9,9 +8,8 @@ void main() {
   Store? store;
   setUp(
     () => store = openStore(
-      directory:
-          Directory.current.createTempSync().path,
-          // Directory.current.createTempSync('${Random().nextInt(100000)}').path,
+      directory: Directory.current.createTempSync().path,
+      // Directory.current.createTempSync('${Random().nextInt(100000)}').path,
     ),
   );
   tearDown(() {
@@ -22,9 +20,9 @@ void main() {
   });
   test('', () {
     // Directory('objectbox').deleteSync(recursive: true);
-    print(store!.directoryPath);
     // final dispatcher = ContainerAllocationDispatcher();
     final box = store!.box<ContainerAllocationImpl>();
+    assert(box.isEmpty(), '');
     // dispatcher
     //   ..box = box
     //   ..dispatch(

@@ -13,7 +13,7 @@ Data implementation for bestow
 Install via `dart pub add`:
 
 ```sh
-dart pub add bestow_data_main
+dart pub add bestow_data_main_main
 ```
 
 ---

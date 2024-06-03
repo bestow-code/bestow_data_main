@@ -1,0 +1,87 @@
+syntax = 'proto3';
+
+package data.v1;
+
+message InventoryDigest {
+  bytes uuid_seed = 1;
+  ContainerSizeRangeAllocation container_size_range_allocation = 2;
+  repeated Item item = 3;
+  repeated Containment containment = 4;
+}
+
+message ContainerSizeRangeAllocation {
+  uint32 container_type_id = 1;
+  uint32 start = 2;
+  uint32 fixed_display_length = 3;
+  repeated ContainerSizeRangeSpan span = 4;
+}
+
+message ContainerSizeRangeSpan {
+  uint32 container_size_id = 1;
+  uint32 span_length = 2;
+}
+
+message ContainerUid {
+  uint32 container_id = 1;
+  uint32 container_size_range_allocation_id = 2;
+  uint container_size_id = 3;
+  uint32 container_number = 4;
+  bytes uuid_bytes = 5;
+}
+
+message ContainerRef {
+  uint32 container_type_id = 1;
+  uint32 container_number = 2;
+}
+
+message Containment {
+  uint32 containment_id = 1;
+  uint32 containing_container_ref = 2;
+  oneof contents {
+    uint32 container_id = 3;
+    uint32 item_id = 4;
+  }
+}
+
+message ItemRef {
+  uint32 item_id = 1;
+  bytes uuid_bytes = 2;
+}
+
+message Item {
+  uint32 item_id = 1;
+  uint32 image_id = 2;
+  optional uint32 item_group_id = 3;
+  bytes uuid_bytes = 4;
+  bool is_disposed = 3;
+}
+
+message ItemGroup {
+  uint32 item_group_id = 1;
+  optional uint32 primary_item_id = 2;
+  uint33 image_id = 3;
+  bytes uuid_bytes = 4;
+  bool is_disposed = 3;
+}
+
+message ItemGroupMember {
+  uint32 item_group_id = 1;
+  uint32 item_id = 2;
+  bool is_disposed = 3;
+}
+
+message Label {
+  uint32 label_id = 1;
+  oneof subject {
+    uint32 item_id = 2;
+    uint32 item_group_id = 3;
+  }
+  bool is_disposed = 4;
+}
+
+message Image {
+  uint32 image_id = 1;
+  uint32 item_id = 2;
+  bool is_disposed = 3;
+  bytes uuid_bytes = 4;
+}

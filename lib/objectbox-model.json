@@ -1,0 +1,218 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "2:9190919246797820888",
+      "lastPropertyId": "2:5471802401770367182",
+      "name": "ContainerImpl",
+      "properties": [
+        {
+          "id": "1:5320174672383884938",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:5471802401770367182",
+          "name": "containerKeyId",
+          "type": 11,
+          "flags": 552,
+          "indexId": "2:4222243906182180953",
+          "relationTarget": "ContainerKey"
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "3:138617536353866379",
+      "lastPropertyId": "5:2362620040545378201",
+      "name": "ContainerKey",
+      "properties": [
+        {
+          "id": "1:7170388006748374099",
+          "name": "number",
+          "type": 6
+        },
+        {
+          "id": "2:8941224255903576230",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "3:5269665106346671635",
+          "name": "refValue",
+          "type": 9,
+          "flags": 2080,
+          "indexId": "3:3390060962605601122"
+        },
+        {
+          "id": "4:7971285564765932377",
+          "name": "kindValue",
+          "type": 6
+        },
+        {
+          "id": "5:2362620040545378201",
+          "name": "sizeValue",
+          "type": 6
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "5:7584494430530453985",
+      "lastPropertyId": "3:8157615837710123094",
+      "name": "ItemImpl",
+      "properties": [
+        {
+          "id": "1:1549805612462743546",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:1130233744611876090",
+          "name": "keyId",
+          "type": 11,
+          "flags": 552,
+          "indexId": "4:8892035720976978716",
+          "relationTarget": "ItemKey"
+        },
+        {
+          "id": "3:8157615837710123094",
+          "name": "imageToOneId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "5:5623137823168338711",
+          "relationTarget": "ImageImpl"
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "6:8093215439518371364",
+      "lastPropertyId": "2:4030846401022834245",
+      "name": "ItemKey",
+      "properties": [
+        {
+          "id": "1:4977205528993016316",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:4030846401022834245",
+          "name": "refData",
+          "type": 9,
+          "flags": 2080,
+          "indexId": "6:8959376247652277815"
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "7:8435266954701970158",
+      "lastPropertyId": "5:3755082164854801840",
+      "name": "ContainerAllocationImpl",
+      "properties": [
+        {
+          "id": "1:8207793799000157109",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "3:2013961933570842091",
+          "name": "fixedDisplayLength",
+          "type": 6
+        },
+        {
+          "id": "4:7868095781228007391",
+          "name": "containerTypeUid",
+          "type": 6
+        },
+        {
+          "id": "5:3755082164854801840",
+          "name": "uid",
+          "type": 9,
+          "flags": 2080,
+          "indexId": "7:2851303846538118445"
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "8:167306156845435140",
+      "lastPropertyId": "5:5380814056965852521",
+      "name": "ImageImpl",
+      "properties": [
+        {
+          "id": "2:7759260328745736261",
+          "name": "itemToOneId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "8:5022835796626166426",
+          "relationTarget": "ItemImpl"
+        },
+        {
+          "id": "3:264707604461775807",
+          "name": "refData",
+          "type": 9,
+          "flags": 2080,
+          "indexId": "9:3981732054058593780"
+        },
+        {
+          "id": "4:4620269097939630006",
+          "name": "token",
+          "type": 9
+        },
+        {
+          "id": "5:5380814056965852521",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "9:8679458422601398496",
+      "lastPropertyId": "1:8238810890270604880",
+      "name": "ContainmentImpl",
+      "properties": [
+        {
+          "id": "1:8238810890270604880",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "9:8679458422601398496",
+  "lastIndexId": "9:3981732054058593780",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [
+    3773422052721744386,
+    5694165611361444865
+  ],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [
+    3843071922204309375,
+    8943971859390874752,
+    6716990357721271012,
+    2158182812673860454,
+    4127790479408864688,
+    7796725037392309745,
+    3531835921916943517,
+    755204125409317692
+  ],
+  "retiredRelationUids": [],
+  "version": 1
+}
